@@ -1,9 +1,11 @@
+import React, { useState } from 'react';
 import './App.css';
 import Expense from './components/ExpenseItem';
+import AddExpense from './components/NewExpaense/AddExpense';
 
 function App() {
 
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       title: 'Food',
       amount: '10',
@@ -19,7 +21,11 @@ function App() {
       amount: '200',
       location: 'Gandhimaidaan'
     }
-  ]
+  ]);
+
+  const addExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => [...prevExpenses, expense]);
+  }
 
   return (
     <div className="App">
@@ -32,6 +38,8 @@ function App() {
           location={expense.location}
         />
       ))}
+
+      <AddExpense onAddExpense = {addExpenseHandler}/>
     </div>
   );
 }
