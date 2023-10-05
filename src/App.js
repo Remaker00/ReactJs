@@ -1,12 +1,15 @@
-import './App.css';
-import Expense from './components/ExpenseItem';
+import React, { Fragment } from 'react'
 
-function App() {
+import MainItemPage from './Component/MainItemPage'
+
+const App = () => {
   return (
-    <div className="App">
-      <Expense />
+    <div>
+      <Fragment>
+        <MainItemPage />
+      </Fragment>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
